@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Axe } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { cn } from "@/lib/utils";
 
 export default function AxeLumberjackPage() {
   const [score, setScore] = useState(0);
@@ -50,7 +52,30 @@ export default function AxeLumberjackPage() {
       </header>
 
       <div className="flex-grow flex flex-col items-center justify-center w-full max-w-md">
-        <div className="w-full space-y-4">
+        <div className="relative w-full flex items-end justify-center h-96">
+            <div className={cn("absolute left-1/2 -translate-x-full", isChopping && "animate-chop")}>
+                 <Image
+                    src="https://placehold.co/200x250.png"
+                    alt="Axe Lumberjack"
+                    width={200}
+                    height={250}
+                    data-ai-hint="red warrior"
+                    className="transform -scale-x-100"
+                />
+            </div>
+            <div className="absolute right-1/2 -translate-x-1/4">
+                 <Image
+                    src="https://placehold.co/150x300.png"
+                    alt="Tree"
+                    width={150}
+                    height={300}
+                    data-ai-hint="pine tree"
+                    className={cn(isTreeFelled && "opacity-0 transition-opacity duration-1000")}
+                />
+            </div>
+        </div>
+
+        <div className="w-full space-y-4 mt-8">
             <h2 className="text-xl font-semibold text-center text-primary-foreground">Tree Health</h2>
             <Progress value={treeHealth} className="w-full h-8 border border-primary-foreground/20" />
             {isTreeFelled && (
