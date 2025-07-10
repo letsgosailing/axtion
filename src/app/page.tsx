@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -52,26 +53,16 @@ export default function AxeLumberjackPage() {
       </header>
 
       <div className="flex-grow flex flex-col items-center justify-center w-full max-w-md">
-        <div className="relative w-full flex items-end justify-center h-96">
-            <div className={cn("absolute left-1/2 -translate-x-full", isChopping && "animate-chop")}>
+        <div className="relative w-full flex items-center justify-center h-96">
+            <div className={cn("transition-transform duration-300", isChopping ? "animate-chop" : "rotate-6")}>
                  <Image
-                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/14/Axe_Model.png/revision/latest"
+                    src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/axe.png"
                     alt="Axe"
-                    width={200}
-                    height={250}
+                    width={400}
+                    height={400}
                     unoptimized
                     data-ai-hint="red warrior"
-                    className="transform -scale-x-100 object-contain"
-                />
-            </div>
-            <div className="absolute right-1/2 -translate-x-1/4">
-                 <Image
-                    src="https://placehold.co/150x300.png"
-                    alt="Tree"
-                    width={150}
-                    height={300}
-                    data-ai-hint="pine tree"
-                    className={cn(isTreeFelled && "opacity-0 transition-opacity duration-1000")}
+                    className="object-contain"
                 />
             </div>
         </div>
