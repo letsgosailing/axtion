@@ -18,12 +18,6 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'static.wikia.nocookie.net',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'cdn.cloudflare.steamstatic.com',
         port: '',
         pathname: '/**',
