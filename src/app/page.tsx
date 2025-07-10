@@ -42,7 +42,7 @@ export default function AxeLumberjackPage() {
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen bg-background p-4 sm:p-8 font-body overflow-hidden relative">
-      <div className="absolute inset-0 bg-[url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/grey_painterly.png')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/wandering_waters/patch_notes_bg.jpg')] bg-cover bg-center opacity-30"></div>
       
       <header className="w-full flex justify-between items-start z-10">
         <Card className="bg-card/70 backdrop-blur-sm border-accent/30 shadow-lg">
@@ -79,7 +79,7 @@ export default function AxeLumberjackPage() {
             </div>
             <div className={cn("absolute bottom-0 right-0 transition-all duration-300", isTreeFelled ? "opacity-0 scale-90" : "opacity-100 scale-100")}>
                 <Image 
-                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/c/c5/Ironwood_Tree_model.png/revision/latest?cb=20200110222149"
+                    src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/wandering_waters/patch_notes_art.png"
                     alt="Tree"
                     width={200}
                     height={300}
