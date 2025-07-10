@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,12 +13,18 @@ export default function AxeLumberjackPage() {
   const [score, setScore] = useState(0);
   const [treeHealth, setTreeHealth] = useState(100);
   const [isChopping, setIsChopping] = useState(false);
+  const chopSoundRef = useRef<HTMLAudioElement>(null);
 
   const CHOP_DAMAGE = 20;
   const POINTS_PER_CHOP = 100;
 
   const handleChop = () => {
     if (treeHealth <= 0 || isChopping) return;
+
+    if (chopSoundRef.current) {
+      chopSoundRef.current.currentTime = 0;
+      chopSoundRef.current.play();
+    }
 
     setIsChopping(true);
     setScore((prevScore) => prevScore + POINTS_PER_CHOP);
@@ -42,6 +48,7 @@ export default function AxeLumberjackPage() {
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen bg-background p-4 sm:p-8 font-body overflow-hidden relative">
+      <audio ref={chopSoundRef} src="https://actions.google.com/sounds/v1/impacts/axe_chop_on_wood.ogg" preload="auto"></audio>
       <div className="absolute inset-0 bg-[url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/wandering_waters/patch_notes_bg.jpg')] bg-cover bg-center opacity-30"></div>
       
       <header className="w-full flex justify-between items-start z-10">
@@ -79,7 +86,7 @@ export default function AxeLumberjackPage() {
             </div>
             <div className={cn("absolute bottom-0 right-0 transition-all duration-300", isTreeFelled ? "opacity-0 scale-90" : "opacity-100 scale-100")}>
                 <Image 
-                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/1c/Sagan%27s_Grove_Tree.png"
+                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/1c/Sagan%27s_Grove_Tree.png/revision/latest/scale-to-width-down/200?cb=20240524175316"
                     alt="Tree"
                     width={200}
                     height={300}
@@ -106,4 +113,5 @@ export default function AxeLumberjackPage() {
       </footer>
     </main>
   );
-}
+
+    
