@@ -48,7 +48,7 @@ export default function AxeLumberjackPage() {
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen bg-background p-4 sm:p-8 font-body overflow-hidden relative">
-      <audio ref={chopSoundRef} src="https://actions.google.com/sounds/v1/impacts/axe_chop_on_wood.ogg" preload="auto"></audio>
+      <audio ref={chopSoundRef} src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/11/Vo_axe_axe_ability_battlehunger_01.mp3" preload="auto"></audio>
       <div className="absolute inset-0 bg-[url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/wandering_waters/patch_notes_bg.jpg')] bg-cover bg-center opacity-30"></div>
       
       <header className="w-full flex justify-between items-start z-10">
@@ -57,7 +57,7 @@ export default function AxeLumberjackPage() {
               <h2 className="text-lg font-semibold text-center text-primary-foreground/80 mb-2">Tree Health</h2>
               <Progress value={treeHealth} className="w-40 h-4 border border-primary-foreground/20" />
               {isTreeFelled && (
-                  <p className="text-center text-sm text-primary-foreground/80 animate-pulse mt-2">New tree...</p>
+                  <p className="text-center text-sm text-primary-foreground/80 animate-pulse mt-2">Respawning...</p>
               )}
           </CardContent>
         </Card>
@@ -73,7 +73,7 @@ export default function AxeLumberjackPage() {
 
       <div className="flex-grow flex items-center justify-center w-full max-w-md z-10 -mt-20">
         <div className="relative w-full flex items-end justify-center h-96">
-            <div className={cn("absolute bottom-0 left-0 transition-transform duration-300", isChopping ? "animate-chop" : "rotate-6")}>
+            <div className={cn("absolute bottom-0 left-1/2 -translate-x-1/2 transition-transform duration-300", isChopping ? "animate-chop" : "rotate-6")}>
                  <Image
                     src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/axe.png"
                     alt="Axe"
@@ -81,17 +81,6 @@ export default function AxeLumberjackPage() {
                     height={400}
                     unoptimized
                     data-ai-hint="red warrior"
-                    className="object-contain"
-                />
-            </div>
-            <div className={cn("absolute bottom-0 right-0 transition-all duration-300", isTreeFelled ? "opacity-0 scale-90" : "opacity-100 scale-100")}>
-                <Image 
-                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/1c/Sagan%27s_Grove_Tree.png/revision/latest/scale-to-width-down/200?cb=20240524175316"
-                    alt="Tree"
-                    width={200}
-                    height={300}
-                    unoptimized
-                    data-ai-hint="fantasy tree"
                     className="object-contain"
                 />
             </div>
@@ -113,5 +102,4 @@ export default function AxeLumberjackPage() {
       </footer>
     </main>
   );
-
-    
+}
