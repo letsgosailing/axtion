@@ -48,7 +48,7 @@ export default function AxeLumberjackPage() {
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen bg-background p-4 sm:p-8 font-body overflow-hidden relative">
-      <audio ref={chopSoundRef} src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/11/Vo_axe_axe_ability_battlehunger_01.mp3/revision/latest" preload="auto"></audio>
+      <audio ref={chopSoundRef} src="https://static.wikia.nocookie.net/dota2_gamepedia/images/c/c8/Weapons_hero_axe_attack01.mp3/revision/latest" preload="auto"></audio>
       <div className="absolute inset-0 bg-[url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/wandering_waters/patch_notes_bg.jpg')] bg-cover bg-center opacity-30"></div>
       
       <header className="w-full flex justify-between items-start z-10">
