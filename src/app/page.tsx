@@ -79,7 +79,7 @@ export default function AxeLumberjackPage() {
             </div>
             <div className={cn("absolute bottom-0 right-0 transition-all duration-300", isTreeFelled ? "opacity-0 scale-90" : "opacity-100 scale-100")}>
                 <Image 
-                    src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/wandering_waters/patch_notes_art.png"
+                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/1c/Sagan%27s_Grove_Tree.png"
                     alt="Tree"
                     width={200}
                     height={300}
