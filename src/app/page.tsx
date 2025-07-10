@@ -14,6 +14,7 @@ export default function AxeLumberjackPage() {
   const [treeHealth, setTreeHealth] = useState(100);
   const [isChopping, setIsChopping] = useState(false);
   const chopSoundRef = useRef<HTMLAudioElement>(null);
+  const fellSoundRef = useRef<HTMLAudioElement>(null);
 
   const CHOP_DAMAGE = 20;
   const POINTS_PER_CHOP = 100;
@@ -28,7 +29,19 @@ export default function AxeLumberjackPage() {
 
     setIsChopping(true);
     setScore((prevScore) => prevScore + POINTS_PER_CHOP);
-    setTreeHealth((prevHealth) => Math.max(0, prevHealth - CHOP_DAMAGE));
+    
+    const newHealth = Math.max(0, treeHealth - CHOP_DAMAGE);
+    setTreeHealth(newHealth);
+
+    if (newHealth <= 0) {
+      if (fellSoundRef.current) {
+        // Add a slight delay to play after the last chop sound
+        setTimeout(() => {
+          fellSoundRef.current!.currentTime = 0;
+          fellSoundRef.current!.play();
+        }, 150);
+      }
+    }
 
     setTimeout(() => {
       setIsChopping(false);
@@ -49,6 +62,7 @@ export default function AxeLumberjackPage() {
   return (
     <main className="flex flex-col items-center justify-between min-h-screen bg-background p-4 sm:p-8 font-body overflow-hidden relative">
       <audio ref={chopSoundRef} src="https://static.wikia.nocookie.net/dota2_gamepedia/images/c/c8/Weapons_hero_axe_attack01.mp3/revision/latest" preload="auto"></audio>
+      <audio ref={fellSoundRef} src="https://static.wikia.nocookie.net/dota2_gamepedia/images/4/47/Weapons_hero_axe_culling_blade_success.mp3/revision/latest" preload="auto"></audio>
       <div className="absolute inset-0 bg-[url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/wandering_waters/patch_notes_bg.jpg')] bg-cover bg-center opacity-30"></div>
       
       <header className="w-full flex justify-between items-start z-10">
