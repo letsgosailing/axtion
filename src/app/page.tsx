@@ -55,10 +55,11 @@ export default function AxeLumberjackPage() {
         <div className="relative w-full flex items-end justify-center h-96">
             <div className={cn("absolute left-1/2 -translate-x-full", isChopping && "animate-chop")}>
                  <Image
-                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/14/Axe_Model.png/revision/latest?cb=20230811191054"
+                    src="https://static.wikia.nocookie.net/dota2_gamepedia/images/1/14/Axe_Model.png/revision/latest"
                     alt="Axe"
                     width={200}
                     height={250}
+                    unoptimized
                     data-ai-hint="red warrior"
                     className="transform -scale-x-100 object-contain"
                 />
